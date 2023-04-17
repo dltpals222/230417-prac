@@ -48,12 +48,16 @@ console.log(examThree('hello'));
 
 
 
-//4번째 최솟값 판별하기
+//4번째 최솟값 판별하기 (수정 1차)
 function examFour(array){
-  if(typeof array === "object"){
-    return Math.min(...array)
+  if(typeof array === "object"){ //이것만으로는 객체와 배열을 구분할 수 없음
+    if(Array.isArray(array)===true){
+      return Math.min(...array)
+    } else {
+      console.log('typeof에서 object이지만 배열이 아닙니다.')
+    }
   } else {
-    console.log('배열이 아닙니다.')
+    console.log('typeof에서 object가 아닙니다.')
   }
 }
 
@@ -62,14 +66,18 @@ console.log(examFour([3,1,4,2]))
 
 
 
-//5번째 배열값 누산(총합)구하기
+//5번째 배열값 누산(총합)구하기 (수정 1차)
 function examFive(array){
-  if(typeof array === 'object'){
-    let count = 0;
-    array.map(element => count += element)
-    return count
+  if(typeof array === 'object'){ //이것만으로는 객체와 배열을 구분할 수 없음
+    if(Array.isArray(array)===true){
+      let count = 0;
+      array.map(element => count += element)
+      return count
+    } else {
+      console.log('typeof에서 object이지만 배열이 아닙니다.')
+    }
   } else {
-    console.log('배열이 아닙니다.')
+    console.log('typeof에서 object가 아닙니다.')
   }
 }
 
