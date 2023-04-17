@@ -88,18 +88,24 @@ console.log(examLength.threeLength())
 
 
 
-//4번째 최솟값 판별하기
+//4번째 최솟값 판별하기 (수정 1차)
 class examFour{
   constructor(array){
     this.array = array
   };
 
   set array(value){
-    if(typeof(value) === 'object'){
-      this._array=value
+    if(typeof(value) === 'object'){ //이것만으로는 객체와 배열을 구분할 수 없음
+      if(Array.isArray(value)=== true){
+        this._array = value
+      } else {
+        console.log('typeof에서 object이지만 배열이 아닙니다.')
+      }
+    } else {
+      console.log('typeof에서 object가 아닙니다.')
     };
   };
-
+  
   min(){
     return Math.min(...this._array)
   }
@@ -110,15 +116,21 @@ console.log(examMin.min())
 
 
 
-//5번째 배열값 누산(총합)하기
+//5번째 배열값 누산(총합)하기 (수정 1차)
 class examFive{
   constructor(array){
     this.array = array
   }
-
+  
   set array(value){
-    if(typeof value === 'object'){
-      this._array = value
+    if(typeof value === 'object'){ //이것만으로는 객체와 배열을 구분할 수 없음
+      if(Array.isArray(value)===true){
+        this._array = value
+      } else {
+        console.log('typeof에서 object이지만 배열이 아닙니다.')
+      }
+    } else {
+      console.log('typeof에서 object가 아닙니다.')
     }
   }
 
